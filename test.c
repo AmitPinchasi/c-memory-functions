@@ -28,6 +28,8 @@ typedef unsigned char BYTE;
 #define SizeOf(type) (char *)(&type+1)-(char*)(&type)
 
 
+
+
 // - MEMCPY - 
 void MemCpy(void *dest, void *src, size_t n)
 {
@@ -82,4 +84,17 @@ void* MemSet(void *address, int c, int len)
     }
   return(address);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// the heap,
+/////////////////////////////////////////////////////////////////////////////////////////////
+//the heap is a very large space in memory which we use to store large buffers of memory
+//in addition the heap is not fast as the satck and data segement, but much larger than them
+//to get a void pointer to the heap we need to use the malloc() function - memory alloction
+//which returns a void pointer in the heap, we need manually delete and free the memory
+//from the heap, with the free() function which get a pointer and remove it from the heap
+//the heap is acually a memory which the os is ivented! the only way to get to the heap
+//in asm is to use syscalls, the heap manged by the os. what would we do without os??
+/////////////////////////////////////////////////////////////////////////////////////////////
+
 
