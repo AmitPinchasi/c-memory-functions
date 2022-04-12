@@ -42,6 +42,18 @@ void MemCpy(void *dest, void *src, size_t n)
        cdest[i] = csrc[i];
 }
 
+int MemCmp(void *dest, void *src, size_t n)
+{
+   //casting src and dest addresses (void *) to (char *)
+   //for handling 1 byte
+   char *csrc = (char *)src;
+   char *cdest = (char *)dest;
+
+   for (int i=0; i<n; i++)
+       if(!(cdest[i] == csrc[i])) return False;   
+   return True;
+}
+
 
 // - MEMMOVE - 
 void MemMove(void *dest, void *src, size_t n)
